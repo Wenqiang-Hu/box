@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class Box extends Component {
-    state = {
-        x: this.props.x,
-    };
 
     getStyle() {
         let style = {
@@ -12,29 +9,29 @@ class Box extends Component {
             backgroundColor: "lightBlue",
             textAlign: "center",
             lineHeight: "50px",
-            marginLeft: this.state.x,
+            marginLeft: this.props.box.x,
             userSelect: null,
         };
-        if (this.state.x === 10) {
+        if (this.props.box.x === 0) {
             style.backgroundColor = "orange";
         }
         return style;
     }
 
-    handleClickLeft = (step) => {
-        this.setState({
-            x: this.state.x - step,
-        });
-    };
-    handleClickRight = (step) => {
-        this.setState({
-            x: this.state.x + step,
-        });
-    };
+    // handleClickLeft = (step) => {
+    //     this.setState({
+    //         x: this.props.box.x - step,
+    //     });
+    // };
+    // handleClickRight = (step) => {
+    //     this.setState({
+    //         x: this.props.box.x + step,
+    //     });
+    // };
     render() {
         return (
             <React.Fragment>
-                <div style={this.getStyle()}>{this.state.x}</div>
+                <div style={this.getStyle()}>{this.props.box.x}</div>
                 <button
                     onClick={() => this.handleClickLeft(5)}
                     type="button"
