@@ -38,7 +38,7 @@ class Box extends Component {
                     Right
                 </button>
                 <button
-                    onClick={() => this.props.handleClickDelete(this.props.id)}
+                    onClick={() => this.props.handleClickDelete(this.props.box.id)}
                     type="button"
                     className="btn btn-danger m-2"
                 >
