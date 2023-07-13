@@ -18,29 +18,20 @@ class Box extends Component {
         return style;
     }
 
-    // handleClickLeft = (step) => {
-    //     this.setState({
-    //         x: this.props.box.x - step,
-    //     });
-    // };
-    // handleClickRight = (step) => {
-    //     this.setState({
-    //         x: this.props.box.x + step,
-    //     });
-    // };
+    
     render() {
         return (
             <React.Fragment>
                 <div style={this.getStyle()}>{this.props.box.x}</div>
                 <button
-                    onClick={() => this.handleClickLeft(5)}
+                    onClick={this.props.handleClickLeft}
                     type="button"
                     className="btn btn-primary m-2"
                 >
                     Left
                 </button>
                 <button
-                    onClick={() => this.handleClickRight(5)}
+                    onClick={this.props.handleClickRight}
                     type="button"
                     className="btn btn-secondary m-2"
                 >

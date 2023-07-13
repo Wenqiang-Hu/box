@@ -11,6 +11,20 @@ class Boxes extends Component {
         ],
     };
 
+    handleClickLeft = (box) => {
+        let boxes = [...this.state.boxes];
+        const k = this.state.boxes.indexOf(box);
+        boxes[k] = { id: box.id, x: box.x - 1 };
+        this.setState({ boxes });
+    };
+
+    handleClickRight = (box) => {
+        let boxes = [...this.state.boxes];
+        const k = this.state.boxes.indexOf(box);
+        boxes[k] = { id: box.id, x: box.x + 1 };
+        this.setState({ boxes });
+    };
+
     handleClickDelete = (boxId) => {
         const boxes = this.state.boxes.filter((b) => b.id !== boxId);
         this.setState({ boxes });
@@ -20,7 +34,7 @@ class Boxes extends Component {
         const boxes = this.state.boxes.map((box) => {
             return { id: box.id, x: 0 };
         });
-        this.setState({boxes});
+        this.setState({ boxes });
     };
 
     render() {
@@ -38,6 +52,8 @@ class Boxes extends Component {
                         <Box
                             key={box.id}
                             box={box}
+                            handleClickLeft={() => this.handleClickLeft(box)}
+                            handleClickRight={() => this.handleClickRight(box)}
                             handleClickDelete={this.handleClickDelete}
                         />
                     );
