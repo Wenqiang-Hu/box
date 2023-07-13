@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
-
 class Box extends Component {
     state = {
-        x: 0,
+        x: this.props.x,
     };
 
     getStyle() {
@@ -22,17 +21,6 @@ class Box extends Component {
         return style;
     }
 
-    //   handleClickLeft = (step) => {
-    //     this.setState({
-    //         x: this.state.x - step,
-    //     })
-    //   }
-
-    //   handleClickRight = (step) => {
-    //     this.setState({
-    //         x: this.state.x + step,
-    //     })
-    //   }
     handleClickLeft = (step) => {
         this.setState({
             x: this.state.x - step,
@@ -50,16 +38,23 @@ class Box extends Component {
                 <button
                     onClick={() => this.handleClickLeft(5)}
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary m-2"
                 >
                     Left
                 </button>
                 <button
                     onClick={() => this.handleClickRight(5)}
                     type="button"
-                    className="btn btn-secondary"
+                    className="btn btn-secondary m-2"
                 >
                     Right
+                </button>
+                <button
+                    onClick={() => this.props.handleClickDelete(this.props.id)}
+                    type="button"
+                    className="btn btn-danger m-2"
+                >
+                    Delete
                 </button>
             </React.Fragment>
         );
